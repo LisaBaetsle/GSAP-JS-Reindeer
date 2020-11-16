@@ -1,8 +1,16 @@
+const screenWidth = window.innerWidth;
+const svgWidth = document.getElementById('reindeer').offsetWidth;
+const distance = screenWidth - svgWidth
+
 // MOVING FORWARDS
 gsap.set('svg', { x: 0 })
 
 function movingForward() {
-  gsap.to("svg", {duration: 20, x: 1000});
+  var tl = gsap.timeline({
+    repeat: 0,
+    defaults: { duration: 15, ease: 'none' },
+  });
+  tl.to("svg", {x: distance});
 }
 
 // BOUNCING CYCLE
@@ -13,8 +21,8 @@ gsap.set('svg', {
 function bounce() {
   //Anything in the defaults object of a timeline gets inherited by its child animations when they get created, so if you find yourself setting the same ease or duration (or any value) over and over again, this can help make your code more concise
   var tl = gsap.timeline({
-    repeat: -1,
-    defaults: { duration: 0.35 }
+    repeat: 21,
+    defaults: { duration: 0.36 },
   });
   //child tweens will inherit the repeat and the duration from the parent timeline!
   tl.to('svg', {
@@ -38,14 +46,14 @@ gsap.set('#REntler', {
 
 function rotateEntlers() {
   var tl = gsap.timeline({
-    repeat: -1,
-    defaults: {  duration: 2 }
+    repeat: 4,
+    defaults: {  duration: 1.87 }
   })
   tl.add('entlers')
     .to('#LEntler', { rotation: -5})
     .to('#REntler', { rotation: 5}, 'entlers') // make sure both entlers start at the same time
-    .to('#LEntler', { rotation: 5}, 'entlers+=2')
-    .to('#REntler', { rotation: -5}, 'entlers+=2')
+    .to('#LEntler', { rotation: 5}, 'entlers+=1.87')
+    .to('#REntler', { rotation: -5}, 'entlers+=1.87')
 }
 
 // WALKING CYCLE
@@ -71,18 +79,18 @@ gsap.set('#RBLeg', {
 
 function walking() {
   var tl = gsap.timeline({
-    repeat: -1,
-    defaults: { duration: 0.7 }
+    repeat: 11,
+    defaults: { duration: 0.68 }
   })
   tl.add('legs')
     .to('#LFLeg', {rotation: -10})
     .to('#RFLeg', {rotation: -10}, 'legs')
     .to('#LBLeg', {rotation: 10}, 'legs')
     .to('#RBLeg', {rotation: 10}, 'legs')
-    .to('#LFLeg', {rotation: 10}, 'legs+=0.7')
-    .to('#RFLeg', {rotation: 10}, 'legs+=0.7')
-    .to('#LBLeg', {rotation: -10}, 'legs+=0.7')
-    .to('#RBLeg', {rotation: -10}, 'legs+=0.7')
+    .to('#LFLeg', {rotation: 10}, 'legs+=0.68')
+    .to('#RFLeg', {rotation: 10}, 'legs+=0.68')
+    .to('#LBLeg', {rotation: -10}, 'legs+=0.68')
+    .to('#RBLeg', {rotation: -10}, 'legs+=0.68')
 }
 
 // WINK
@@ -116,6 +124,7 @@ function moveTail() {
   tl.to('#Tail', { rotation: 40 }, 3)
     .to('#Tail', { rotation: 0 })
 }
+
 
 
 // PLAY ANIMATION ON LOAD
