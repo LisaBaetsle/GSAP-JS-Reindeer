@@ -7,7 +7,7 @@ I'm trying to make an raindeer walk and wink.
 
 ## Details
 
-First I draw a reindeer in Adobe Illustrator. I exported it as a svg file to paste in HTML. 
+First I draw a reindeer in Adobe Illustrator. I exported it as a svg file to paste in HTML.    
 Then I looked into the basics of GSAP and added some animations to my reindeer.
 
 
@@ -39,5 +39,5 @@ Created by Lisa Baetsle
 
 ## Thanks to
 
-[Greensock](https://www.greensock.com)
+[Greensock](https://www.greensock.com)    
 BeCode
