@@ -3,7 +3,7 @@
 ## Motivation
 
 This is my first project with GSAP.
-I'm trying to make an raindeer walk and blink.
+I'm trying to make an raindeer walk and wink.
 
 ## Details
 
